@@ -1,0 +1,9 @@
+.animated-text {
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .animated-text.animate {
+    opacity: 1;
+  }
