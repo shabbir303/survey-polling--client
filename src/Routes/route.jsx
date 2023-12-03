@@ -9,6 +9,13 @@ import Dashboard from "../Layout/Dashboard";
 import SurveyCreation from "../Dashboard/SurveyCreation";
 import ManageUser from "../Dashboard/Admin/ManageUser";
 import AllUsers from "../Dashboard/Admin/AllUsers";
+import MemberShip from "../Pages/MemberShip/MemberShip";
+import Payment from "../Dashboard/User/Payments/Payment";
+import AllSurvey from "../Pages/Survey/AllSurvey";
+import PaymentDetails from "../Dashboard/Admin/PaymentDetails";
+import SurveyStatus from "../Dashboard/Admin/SurveyStatus";
+import SurveyDetail from "../Pages/SurveyDetail/SurveyDetail";
+// import { axiosSecure } from "../Pages/hooks/useAxiosSecure";
 const route = createBrowserRouter([
     {
         path: "/",
@@ -25,6 +32,19 @@ const route = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path:'membership',
+                element: <MemberShip></MemberShip>
+              },
+              {
+              path:'allSurvey',
+              element: <AllSurvey></AllSurvey>
+            },
+            {
+              path:"surveyDetail/:id",
+              element: <SurveyDetail></SurveyDetail>,
+              loader:()=>fetch('http://localhost:5000/surveys')
             }
         ]
     },
@@ -43,7 +63,20 @@ const route = createBrowserRouter([
             {
               path:'filterUsers',
               element: <AllUsers></AllUsers>
+            },
+            {
+              path:'payments',
+              element: <Payment></Payment>
+            },
+            {
+              path:'paymentDetails',
+              element: <PaymentDetails></PaymentDetails>
+            },
+            {
+              path: 'surveyStatus',
+              element: <SurveyStatus></SurveyStatus>
             }
+            
         ]
     }
 ]);

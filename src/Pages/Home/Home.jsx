@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import ReactiveButton from 'reactive-button';
 import Animate from './Animate';
 import Faq from './Faq';
+import Testimonial from './Testimonial';
 const Home = () => {
    
     return (
@@ -23,7 +24,9 @@ const Home = () => {
         </div>
         <div className='my-[100px]'>
         <Faq></Faq>
+        <Testimonial></Testimonial>
         </div>
+
         </>
     );
 };

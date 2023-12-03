@@ -1,4 +1,4 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { Dropdown, Navbar } from 'flowbite-react';
 import { Link, NavLink } from 'react-router-dom';
 import image from '../../assets/fabicon.png'
 import { useContext } from 'react';
@@ -63,9 +63,57 @@ const Header = () => {
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link >All Survey</Navbar.Link>
-                    <Navbar.Link href="#">Survey Detail</Navbar.Link>
-                    <Navbar.Link href="#">Pricing</Navbar.Link>
+                    <Navbar.Link>
+                    <NavLink
+                            to="/allSurvey"
+                            style={({ isActive }) => {
+                                return {
+                                    fontWeight: isActive ? "bold" : "",
+                                    color: isActive ? "blue" : "black",
+                                    // textDecoration: isActive ? "underline" : '',
+                                    fontFamily: isActive ? 'mono':'',
+                                    fontSize: isActive ?"20px":'',
+                                    fontStyle: isActive ?'italic':''
+                                };
+                            }}
+                        >
+                            All Survey
+                        </NavLink>
+                    </Navbar.Link>
+                    <Navbar.Link>
+                    <NavLink
+                            to="/surveyDetail"
+                            style={({ isActive }) => {
+                                return {
+                                    fontWeight: isActive ? "bold" : "",
+                                    color: isActive ? "blue" : "black",
+                                    // textDecoration: isActive ? "underline" : '',
+                                    fontFamily: isActive ? 'mono':'',
+                                    fontSize: isActive ?"20px":'',
+                                    fontStyle: isActive ?'italic':''
+                                };
+                            }}
+                        >
+                             Survey Detail
+                        </NavLink>
+                    </Navbar.Link>
+                    <Navbar.Link >
+                    <NavLink
+                            to="/membership"
+                            style={({ isActive }) => {
+                                return {
+                                    fontWeight: isActive ? "bold" : "",
+                                    color: isActive ? "blue" : "Red",
+                                    // textDecoration: isActive ? "underline" : '',
+                                    fontFamily: isActive ? 'mono':'',
+                                    fontSize: isActive ?"20px":'18px',
+                                    fontStyle: isActive ?'italic':''
+                                };
+                            }}
+                        >
+                           Pro Membership
+                        </NavLink>
+                        </Navbar.Link>
                     <Navbar.Link >
                     <NavLink
                             to="/dashboard"
