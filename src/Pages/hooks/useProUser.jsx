@@ -5,14 +5,17 @@ import { useQuery } from "@tanstack/react-query";
 
 
 const useProUser = () => {
-    const {user} = useContext(AuthContext)
+    const { user,loading } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
-    const{data: isProUser} = useQuery({
-      queryKey:[user?.email,'isProUser'],
-      queryFn: async()=>{
-       const res = await axiosSecure.get(`/users/proUser/${user?.email}`);
-       res.data?.proUser
-    }
+    const { data: isProUser } = useQuery({
+        queryKey: [user?.email, 'isProUser'],
+        enabled: !loading && !!localStorage.getItem('access-token'),
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/proUsers/${user?.email}`);
+            return res.data?.proUser;
+
+            // console.log(res.data?.proUser);
+        }
     })
     return [isProUser]
 };

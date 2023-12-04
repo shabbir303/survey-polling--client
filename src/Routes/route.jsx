@@ -15,11 +15,16 @@ import AllSurvey from "../Pages/Survey/AllSurvey";
 import PaymentDetails from "../Dashboard/Admin/PaymentDetails";
 import SurveyStatus from "../Dashboard/Admin/SurveyStatus";
 import SurveyDetail from "../Pages/SurveyDetail/SurveyDetail";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
+import SurveyResponse from "../Dashboard/Admin/SurveyResponse";
+import Error from "../Pages/Error/Error";
 // import { axiosSecure } from "../Pages/hooks/useAxiosSecure";
 const route = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
@@ -35,7 +40,7 @@ const route = createBrowserRouter([
             },
             {
                 path:'membership',
-                element: <MemberShip></MemberShip>
+                element: <AdminRoute><MemberShip></MemberShip></AdminRoute>
               },
               {
               path:'allSurvey',
@@ -43,38 +48,43 @@ const route = createBrowserRouter([
             },
             {
               path:"surveyDetail/:id",
-              element: <SurveyDetail></SurveyDetail>,
+              element: <PrivateRoute><SurveyDetail></SurveyDetail></PrivateRoute> ,
               loader:()=>fetch('http://localhost:5000/surveys')
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
         children: [
             {
                 path:'surveyCreate',
-                element: <SurveyCreation></SurveyCreation>
+                element: <PrivateRoute><SurveyCreation></SurveyCreation></PrivateRoute>
             },
             {
               path:'mangeUsers',
-              element: <ManageUser></ManageUser>
+              element:  <AdminRoute><ManageUser></ManageUser></AdminRoute>
             },
             {
               path:'filterUsers',
-              element: <AllUsers></AllUsers>
+              element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
               path:'payments',
-              element: <Payment></Payment>
+              element: <PrivateRoute><Payment></Payment></PrivateRoute>
             },
             {
               path:'paymentDetails',
-              element: <PaymentDetails></PaymentDetails>
+              element: <AdminRoute><PaymentDetails></PaymentDetails></AdminRoute>
+              
             },
             {
               path: 'surveyStatus',
-              element: <SurveyStatus></SurveyStatus>
+              element: <AdminRoute><SurveyStatus></SurveyStatus></AdminRoute>
+            },
+            {
+              path: 'surveyResponse',
+              element: <SurveyResponse></SurveyResponse>
             }
             
         ]

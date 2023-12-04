@@ -5,6 +5,8 @@ import { FaHandPointLeft, FaHandPointRight, FaHandPointUp, FaHandPointer, FaHome
 import useAdmin from "../Pages/hooks/useAdmin";
 import useSurveyor from "../Pages/hooks/useSurveyor";
 import useProUser from "../Pages/hooks/useProUser";
+import { FaTty } from "react-icons/fa";
+import { FaUserCog } from "react-icons/fa";
 // import useUser from "../Pages/hooks/useUser";
 // import { faUser} from "@fortawesome/fontawesome-svg-core"
 
@@ -166,15 +168,15 @@ const Dashboard = () => {
                             <FaHome></FaHome>
                             Home</NavLink>
                     </li>
-                    <li className="py-1">
-                        <NavLink to='/' 
-                        >
+                    <li className="py-1 flex">
+                        <NavLink to='/' className='flex items-center justify-center gap-[5px]'
+                        ><FaUserCog />
                             {/* <FaHome className="text-center"></FaHome> */}
                             About Us</NavLink>
                     </li>
-                    <li className="py-1">
-                        <NavLink to='/'
-                        >
+                    <li className="py-1 flex">
+                        <NavLink to='/'className='flex items-center justify-center gap-[5px]'
+                        ><FaTty />
                             {/* <FaHome className="text-center"></FaHome> */}
                             Contact Us</NavLink>
                     </li>

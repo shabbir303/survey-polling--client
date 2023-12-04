@@ -5,6 +5,7 @@ import ReactiveButton from 'reactive-button';
 import Animate from './Animate';
 import Faq from './Faq';
 import Testimonial from './Testimonial';
+import { Link, Navigate } from 'react-router-dom';
 const Home = () => {
    
     return (
@@ -15,9 +16,11 @@ const Home = () => {
             </Helmet>
            <div className='text-center py-[250px] text-white'>
            <Animate></Animate> 
-             <h1 className='text-[14px] font-[400] text-cyan-400 w-[800px] mx-auto font-mono'>Seamlessly engage audiences across hybrid workspaces through live online polling, surveys, Q&As, quizzes, word clouds, and more.</h1>
+             <h1 className='text-[14px] font-[400] mb-[20px] text-cyan-400 w-[800px] mx-auto font-mono'>Seamlessly engage audiences across hybrid workspaces through live online polling, surveys, Q&As, quizzes, word clouds, and more.</h1>
              {/* <Button gradientDuoTone="tealToLime" className='flex justify-center items-center mx-auto'>Pink to Orange</Button> */}
+             
              <ReactiveButton href="#" color="teal" rounded shadow  size="large"  idleText="Explore more "></ReactiveButton>
+             
              
            </div>
            

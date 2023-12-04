@@ -3,9 +3,12 @@ import { Helmet } from "react-helmet";
 import useSurvey from "../hooks/useSurvey";
 import { Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
+import { FaThumbsUp } from "react-icons/fa6";
+import { FaThumbsDown } from "react-icons/fa6";
 // import { useState } from "react";
 
 const AllSurvey = () => {
+    
     const [survey] = useSurvey();
     console.log(survey);
 
@@ -49,7 +52,12 @@ const AllSurvey = () => {
                         </a>
                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Question: <span className="text-red-600">{survey.que}</span></p>
                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{survey.des}</p>
-                        <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">Total Vote:</p>
+                       <div className="flex justify-between items-center">
+                       <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">Total Vote:{survey.selectedOption} </p>
+                       <div className="felx gap-3 items-center">
+                       <div className="flex items-center text-green-600"><FaThumbsUp/>:{survey.likeCount}</div> <div className="flex items-center text-red-600"><FaThumbsDown />:{survey.dislikeCount} </div>
+                       </div>
+                       </div>
                         <Link to={`/surveyDetail/${survey._id} `} >
                             <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 View Details
