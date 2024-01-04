@@ -19,10 +19,10 @@ const Header = () => {
     return (
         <div className='max-w-7xl mx-auto'>
 
-            <Navbar fluid rounded>
+            <Navbar fluid rounded className='bg-inherit'>
                 <Navbar.Brand href="">
                     <img src={image} className="mr-3 h-6 sm:h-9" alt="" />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white font-inter">Pulling & Survey</span>
+                    <span className="self-center whitespace-nowrap text-xl font-semibold text-teal-900 font-inter">Pulling & Survey</span>
                 </Navbar.Brand>
                 {user ? <div className="flex md:order-2">
                     <Dropdown
@@ -52,7 +52,7 @@ const Header = () => {
                             style={({ isActive }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
-                                    color: isActive ? "blue" : "black",
+                                    color: isActive ? "blue" : "white",
                                     // textDecoration: isActive ? "underline" : '',
                                     fontFamily: isActive ? 'mono':'',
                                     fontSize: isActive ?"20px":'',
@@ -69,7 +69,7 @@ const Header = () => {
                             style={({ isActive }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
-                                    color: isActive ? "blue" : "black",
+                                    color: isActive ? "blue" : "white",
                                     // textDecoration: isActive ? "underline" : '',
                                     fontFamily: isActive ? 'mono':'',
                                     fontSize: isActive ?"20px":'',
@@ -86,7 +86,7 @@ const Header = () => {
                             style={({ isActive }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
-                                    color: isActive ? "blue" : "black",
+                                    color: isActive ? "blue" : "white",
                                     // textDecoration: isActive ? "underline" : '',
                                     fontFamily: isActive ? 'mono':'',
                                     fontSize: isActive ?"20px":'',
@@ -120,7 +120,7 @@ const Header = () => {
                             style={({ isActive }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
-                                    color: isActive ? "blue" : "black",
+                                    color: isActive ? "blue" : "white",
                                     // textDecoration: isActive ? "underline" : '',
                                     fontFamily: isActive ? 'mono':'',
                                     fontSize: isActive ?"20px":'',

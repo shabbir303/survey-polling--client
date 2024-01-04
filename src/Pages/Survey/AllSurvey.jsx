@@ -5,10 +5,12 @@ import { Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { FaThumbsUp } from "react-icons/fa6";
 import { FaThumbsDown } from "react-icons/fa6";
+import { useState } from "react";
 // import { useState } from "react";
 
 const AllSurvey = () => {
-    
+    const [filterCategory, setFilterCategory] = useState("");
+    console.log(filterCategory);
     const [survey] = useSurvey();
     console.log(survey);
 
@@ -19,14 +21,14 @@ const AllSurvey = () => {
                 <title>Polling | All Survey</title>
             </Helmet>
             <div>
-                <h1 className="text-[40px] text-center font-cinzel font-[700] my-[50px]">All Surveys Here</h1>
+                <h1 className="text-[40px] text-center font-cinzel font-[700] my-[50px] text-slate-400">All Surveys Here</h1>
                 <Dropdown label="Filter Survey Menu" dismissOnClick={false}>
                     <Dropdown.Item>
                         <input
                             type="text"
                             placeholder="Filter by Category"
-                        // value={filterCategory}
-                        // onChange={(e) => setFilterCategory(e.target.value)}
+                        value={filterCategory}
+                        onChange={(e) => setFilterCategory(e.target.value)}
                         /></Dropdown.Item>
                     <Dropdown.Item><input
                         type="text"
@@ -40,7 +42,7 @@ const AllSurvey = () => {
 
             <div>
                 {survey?.map(survey =>
-                    <div key={survey._id} className="max-w-[80%] mx-auto my-[50px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div key={survey._id} className="max-w-[80%] mx-auto my-[50px] p-6 bg-cyan-950 border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 shadow-teal-700 shadow-xl">
                         <a href="#">
 
                             <h5 className="text-center underlined text-sky-700 mb-2 text-3xl uppercase border-[1px] bg-slate-200 w-[50%] mx-auto font-bold tracking-tight dark:text-white">{survey.category}</h5>
@@ -51,7 +53,7 @@ const AllSurvey = () => {
                             </div>
                         </a>
                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Question: <span className="text-red-600">{survey.que}</span></p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{survey.des}</p>
+                        <p className="mb-3 font-normal text-gray-400 dark:text-gray-400">{survey.des}</p>
                        <div className="flex justify-between items-center">
                        <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">Total Vote:{survey.selectedOption} </p>
                        <div className="felx gap-3 items-center">

@@ -40,7 +40,7 @@ const route = createBrowserRouter([
             },
             {
                 path:'membership',
-                element: <AdminRoute><MemberShip></MemberShip></AdminRoute>
+                element: <PrivateRoute><MemberShip></MemberShip></PrivateRoute>
               },
               {
               path:'allSurvey',

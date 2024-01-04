@@ -20,10 +20,11 @@ const SurveyDetail = () => {
     const [disable, setDisable] = useState(false);
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
-    const likeCount = 0;
-    const dislikeCount = 0;
+    // const [likeCount,setLikeCount] = useState(0);
+    // const [dislikeCount,setDislikeCount] = useState(0);
+    
     // const [, setSelectedOption] = useState(null);
-    const  selectedOption = 0;
+    const   [selectedOption, setSelectedOption] = useState(0);
     const [detail, setDetail] = useState([]);
     const { id } = useParams();
     const eachSurveyDetail = useLoaderData();
@@ -34,27 +35,40 @@ const SurveyDetail = () => {
         const findDetails = eachSurveyDetail.find(details => details._id === id);
         setDetail(findDetails);
     }, [id, eachSurveyDetail]);
-    // console.log(detail);
+    console.log(detail);
 
     const handleOptionChange = () => {
-        selectedOption + 1
+        setSelectedOption(selectedOption + 1)
     };
-    const handleLikeClick = () => {
-        likeCount + 1;
+    const handleLikeClick = async () => {
+        // setLikeCount(likeCount + 1);
+        const data = detail.likeCount + 1;
+        // console.log(data);
+        try {
+            //  axiosPublic.patch(`/like/${detail._id}`);
+             const response = await axiosPublic.patch(`/like/${detail._id}`);
+             console.log(response);
+        }
+        catch(error){
+                console.log("error occoured", error);
+            }
+        console.log(detail.likeCount + 1);
     };
-
+    // put, patch req dite hobe jekhane
     // Function to handle dislike button click
     const handleDislikeClick = () => {
-        dislikeCount + 1;
+        // setDislikeCount(dislikeCount + 1);
     };
+
+
     
     const email = user?.email;
     const pushEmail = userEmail.push(email)
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
-            likeCount,
-            dislikeCount,
+            // likeCount,
+            // dislikeCount,
             selectedOption,
             pushEmail,
             comment
@@ -62,18 +76,19 @@ const SurveyDetail = () => {
         }
         // console.log(data);
 
-        try {
-            axiosPublic.patch(`/surveys/${id}`, data);
-            console.log("like and vote successfully submitted");
-            toast.success("like and vote successfully submitted");
-            if   (likeCount > 0 || dislikeCount > 0){
-                toast.error('you already like and vote this survey')
-                setDisable(true);
-            }
-        }
-        catch(error){
-                // console.log("error occoured", error);
-            }
+        // try {
+        //     axiosPublic.patch(`/surveys/${id}`, data);
+        //     console.log("like and vote successfully submitted");
+        //     toast.success("like and vote successfully submitted");
+        //     if   (likeCount > 0 || dislikeCount > 0){
+        //         toast.error('you already like and vote this survey')
+        //         setDisable(true);
+        //     }
+        // }
+        // catch(error){
+        //         // console.log("error occoured", error);
+        //     }
+
 
 
         }

@@ -6,7 +6,8 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Rating } from '@smastrom/react-rating';
 import { useEffect, useState } from 'react';
 import { Blockquote } from 'flowbite-react';
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
+import "./style.css"
 
 const Testimonial = () => {
     const [review, setReview] = useState([]);
@@ -21,9 +22,9 @@ const Testimonial = () => {
     console.log(review);
     return (
         <div>
-            <section className="bg-white">
+            <section className="">
                 <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                    <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                    <h2 className="text-center text-4xl font-bold tracking-tight text-teal-600 font-cinzel sm:text-5xl">
                         Read trusted reviews from our customers
                     </h2>
                     <Swiper

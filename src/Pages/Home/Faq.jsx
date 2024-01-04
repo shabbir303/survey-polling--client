@@ -4,7 +4,7 @@ import { Accordion } from "flowbite-react";
 const Faq = () => {
     return (
         <div className="max-w-7xl mx-auto ">
-            <h1 className="text-center font-cinzel font-[700] text-[40px]">People also asked this question</h1>
+            <h1 className="text-center font-cinzel font-[700] text-[40px] text-teal-600">People also asked this question</h1>
             <Accordion collapseAll className="bg-indigo-950">
                 <Accordion.Panel>
                     <Accordion.Title className="text-teal-500">Why is it important to conduct surveys?</Accordion.Title>
